@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Navbar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Replace with actual GeistSans if hosted, temporary substitute -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif; /* Replace with GeistSans_3a0388 once available */
+      background-color: #09090b;
+      color: white;
+    }
+
+    /* Existing styles (unchanged) */
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: #0f0f11;
+  color: #fff;
+}
+
+/* Navbar Container */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #09090b;
+  border-bottom: 2px solid #3f3f46;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Logo */
+.logo-text {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.logo-text span {
+  color: #6366f1;
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #d4d4d8;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #818cf8;
+}
+
+/* Hamburger Menu Icon */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.menu-toggle span {
+  height: 3px;
+  width: 25px;
+  background: white;
+  border-radius: 2px;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    flex-direction: column;
+    background-color: #1a1a1e;
+    display: none;
+    padding: 1rem 2rem;
+    border-top: 1px solid #3f3f46;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    width: 100%;
+    text-align: left;
+    padding: 0.75rem 0;
+  }
+}
+
+/* Optional: Smooth Transition */
+.nav-links,
+.menu-toggle {
+  transition: all 0.3s ease;
+}
+
+
+    .hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 2rem;
+  background-color: #09090b;
+  gap: 3rem;
+}
+
+.hero-content {
+  max-width: 600px;
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.hero-content h1 span {
+  display: block;
+  font-size: 1.5rem;
+  color: #818cf8;
+  margin-bottom: 0.5rem;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  color: #d4d4d8;
+  margin-bottom: 2rem;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn.primary {
+  background-color: #6366f1;
+  color: white;
+}
+
+.btn.primary:hover {
+  background-color: #4f46e5;
+}
+
+.btn.outline {
+  border: 2px solid #6366f1;
+  color: #6366f1;
+}
+
+.btn.outline:hover {
+  background-color: #1f1f23;
+}
+
+.hero-image img {
+  width: 280px;
+  border-radius: 1rem;
+  box-shadow: 0 0 40px rgba(99, 102, 241, 0.3);
+}
+
+.typing-text {
+  font-size: 1.2rem;
+  font-weight: 500;
+  height: 1.6rem;
+  min-height: 30px;
+  color: #d4d4d8;
+  margin-bottom: 2rem;
+}
+
+.cursor {
+  display: inline-block;
+  background-color: #d4d4d8;
+  width: 2px;
+  margin-left: 4px;
+  animation: blink 0.7s infinite;
+  height: 1.2rem;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+
+
+.about-modern {
+  background-color: #09090b;
+  padding: 6rem 2rem 3rem; /* 👈 Bottom padding reduced */
+  color: #ffffff;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  align-items: center;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.about-text h4 {
+  color: #fbbf24;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.about-text h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(to right, #6366f1, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+
+.about-text p {
+  color: #d4d4d8;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.about-btn {
+  display: inline-block;
+  background-color: #6366f1;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.about-btn:hover {
+  background-color: #4f46e5;
+}
+
+.about-code {
+  background-color: #111113;
+  border-radius: 1rem;
+  padding: 2rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  overflow-x: auto;
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.1);
+  min-height: 280px;
+  position: relative;
+}
+
+.about-icon {
+  width: 40px;
+  margin-bottom: 1rem;
+}
+
+.code-tag {
+  color: #facc15;
+}
+.code-attr {
+  color: #60a5fa;
+}
+.code-string {
+  color: #d4d4d8;
+}
+
+/* ✅ Responsive Breakpoints */
+@media (max-width: 768px) {
+  .about-text h2 {
+    font-size: 2rem;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+  }
+
+  .about-code {
+    font-size: 0.9rem;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-modern {
+    padding: 4rem 1rem;
+  }
+
+  .about-text h2 {
+    font-size: 1.6rem;
+  }
+
+  .about-text p {
+    font-size: 0.95rem;
+  }
+
+  .about-btn {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .about-code {
+    font-size: 0.85rem;
+    padding: 1.25rem;
+    min-height: auto;
+  }
+
+  .about-icon {
+    width: 32px;
+  }
+}
+
+
+
+
+/* Experience Section */
+.codehelp-style-experience {
+  padding: 1rem 1rem 1rem; /* 👈 Top padding reduced */
+  background-color: #09090b;
+  color: #fff;
+}
+
+
+.experience-container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.section-title {
+  font-size: 2.8rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  background: linear-gradient(to right, #6366f1, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.experience-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.exp-card {
+  background: #111113;
+  border: 1px solid transparent;
+  border-radius: 1rem;
+  padding: 2rem;
+  position: relative;
+  transition: all 0.3s ease;
+  border-image: linear-gradient(135deg, #6366f1, #ec4899) 1;
+}
+
+.exp-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+}
+
+.exp-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.exp-card h3 span {
+  font-weight: 500;
+  color: #a5b4fc;
+  font-size: 1rem;
+  display: block;
+}
+
+.duration {
+  color: #9ca3af;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.exp-card ul {
+  list-style-type: disc;
+  padding-left: 1.2rem;
+  color: #d4d4d8;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: #ef4444;
+  color: white;
+  font-size: 0.75rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+.projects-achievements {
+  background-color: #09090b;
+  padding: 6rem 2rem;
+  color: #fff;
+}
+
+.projects-container {
+  max-width: 1200px;
+  margin: auto;
+  border: 1px solid #facc15;
+  border-radius: 1rem;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  background: radial-gradient(circle at top left, #1a1a1e, #111113);
+  box-shadow: 0 0 25px rgba(250, 204, 21, 0.15);
+}
+
+.project-cards-box {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1rem;
+  text-decoration: none; /* remove underline */
+  color: inherit; /* keep text color same */
+}
+
+.project-card {
+  background-color: #18181b;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  text-align: center;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+  text-decoration: none; /* ✅ Fix here */
+  color: inherit; /* ✅ Inherit text color */
+  display: block; /* make full card clickable */
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-card img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+}
+
+.project-card h4 {
+  font-size: 1rem;
+  color: #facc15;
+  margin-bottom: 0.2rem;
+}
+
+.project-card p {
+  font-size: 0.85rem;
+  color: #a1a1aa;
+}
+
+.project-text h5 {
+  color: #facc15;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.project-text h2 {
+  font-size: 2rem;
+  background: linear-gradient(to right, #facc15, #f97316);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+
+.project-text p {
+  color: #d4d4d8;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* ✅ Responsive Tweaks */
+@media (max-width: 768px) {
+  .projects-container {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+    gap: 2rem;
+  }
+
+  .project-text h2 {
+    font-size: 1.6rem;
+  }
+
+  .project-text p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-achievements {
+    padding: 4rem 1rem;
+  }
+
+  .project-text h2 {
+    font-size: 1.4rem;
+  }
+
+  .project-text p {
+    font-size: 0.9rem;
+  }
+
+  .project-card h4 {
+    font-size: 0.95rem;
+  }
+
+  .project-card p {
+    font-size: 0.8rem;
+  }
+
+  .project-cards-box {
+    grid-template-columns: repeat(2, 1fr); /* stack cards nicely */
+    gap: 0.8rem;
+  }
+
+  .project-card {
+    padding: 0.8rem;
+  }
+}
+
+
+
+
+.skills-section {
+  background-color: #09090b;
+  padding: 6rem 2rem;
+  color: white;
+}
+
+.skills-wrapper {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.skills-left h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.skills-left p {
+  color: #d4d4d8;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.skills-actions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.primary {
+  background-color: #6366f1;
+  color: white;
+}
+
+.secondary {
+  background-color: transparent;
+  border: 1px solid #6366f1;
+  color: #6366f1;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.skills-stats {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.skills-stats img {
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  border: 2px solid #27272a;
+}
+
+.skills-stats span {
+  font-size: 0.9rem;
+  color: #a1a1aa;
+  margin-left: 0.5rem;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.skill-card {
+  padding: 1rem;
+  text-align: center;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, #1a1a1e, #111113);
+  border: 1px solid transparent;
+  border-image: linear-gradient(90deg, #f97316, #6366f1) 1;
+  color: white;
+  font-weight: 500;
+  transition: transform 0.2s ease;
+}
+
+.skill-card:hover {
+  transform: scale(1.03);
+}
+
+/* ✅ Responsive Styling */
+@media (max-width: 1024px) {
+  .skills-wrapper {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .skills-left h2 {
+    font-size: 2rem;
+  }
+
+  .skills-left p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .skills-section {
+    padding: 4rem 1rem;
+  }
+
+  .skills-left h2 {
+    font-size: 1.6rem;
+  }
+
+  .skills-left p {
+    font-size: 0.95rem;
+  }
+
+  .btn {
+    font-size: 0.85rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-card {
+    font-size: 0.9rem;
+  }
+}
+
+
+
+
+.edu-terminal {
+  padding: 6rem 2rem;
+  background-color: #09090b;
+  color: #d1d5db;
+  font-family: 'Courier New', monospace;
+}
+
+.edu-terminal-box {
+  max-width: 800px;
+  margin: auto;
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(250, 204, 21, 0.15);
+  overflow: hidden;
+}
+
+.terminal-header {
+  background-color: #2a2a2a;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.circle {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.red { background-color: #f87171; }
+.yellow { background-color: #facc15; }
+.green { background-color: #4ade80; }
+
+.edu-title {
+  margin-left: auto;
+  font-weight: bold;
+  color: #a3e635;
+  font-size: 0.9rem;
+}
+
+.terminal-body {
+  padding: 2rem;
+  font-size: 1rem;
+  background-color: #0e0e0e;
+}
+
+.prompt {
+  color: #22c55e;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.edu-entry {
+  margin: 1.5rem 0;
+  padding-left: 1rem;
+  border-left: 2px solid #6366f1;
+}
+
+.edu-arrow {
+  color: #facc15;
+  margin-right: 0.5rem;
+}
+
+
+
+
+
+.achievements-section {
+  padding: 6rem 2rem;
+  background-color: #09090b;
+  color: white;
+  text-align: center;
+}
+
+.achievements-container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.achievements-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 2.5rem;
+  background: linear-gradient(to right, #facc15, #f97316);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.achievements-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.achievement-card {
+  background: #18181b;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid #2e2e2e;
+  box-shadow: 0 0 10px rgba(250, 204, 21, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.achievement-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(250, 204, 21, 0.2);
+}
+
+.trophy {
+  font-size: 2rem;
+  color: #facc15;
+}
+
+
+
+
+.social-section {
+  padding: 5rem 2rem;
+  background-color: #09090b;
+  text-align: center;
+  color: white;
+}
+
+.social-container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.social-container h2 {
+  font-size: 2.2rem;
+  background: linear-gradient(to right, #6366f1, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+.social-container p {
+  color: #a1a1aa;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.social-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.2rem 1.5rem;
+  background: #1e1e1e;
+  border-radius: 1.2rem;
+  text-decoration: none;
+  color: white;
+  width: 130px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 0 transparent;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 0.6rem;
+  transition: transform 0.3s ease;
+}
+
+.social-card span {
+  font-size: 0.9rem;
+}
+
+.social-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 18px rgba(99, 102, 241, 0.3);
+}
+
+.social-card:hover .social-icon {
+  transform: scale(1.1);
+}
+
+/* Brand Colors on Hover */
+.github:hover { color: #ffffff; }
+.linkedin:hover { color: #0a66c2; }
+.insta:hover { color: #e1306c; }
+.mail:hover { color: #facc15; }
+
+
+
+
+
+
+
+
+
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <div class="logo-text">Ajit <span>Bisen</span></div>
+    </div>
+
+    <!-- Hamburger Icon -->
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- Nav Links -->
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#social">Contact</a>
+    </div>
+  </nav>
+
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById("navLinks");
+      navLinks.classList.toggle("active");
+    }
+  
+    // Close menu on link click (only on mobile)
+    document.addEventListener("DOMContentLoaded", function () {
+      const navLinks = document.getElementById("navLinks");
+      const links = navLinks.querySelectorAll("a");
+  
+      links.forEach(link => {
+        link.addEventListener("click", () => {
+          if (window.innerWidth <= 768) {
+            navLinks.classList.remove("active");
+          }
+        });
+      });
+    });
+  </script>
+  
+
+  <!-- Other sections of your page -->
+
+<!-- Cursor Gradient Code Starts -->
+<div id="cursor-gradient" ...></div>
+<div id="cursor-gradient" style="
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  background: radial-gradient(circle at center, rgba(99,102,241,0.15) 0%, transparent 50%);
+  opacity: 0.6;
+  transition: background 0.05s ease-out;
+">
+</div>
+
+<script>
+  const cursorGradient = document.getElementById("cursor-gradient");
+
+  document.addEventListener("mousemove", (e) => {
+    const x = e.clientX;
+    const y = e.clientY;
+    cursorGradient.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(99,102,241,0.25) 0%, transparent 40%)`;
+  });
+</script>
+
+<!-- Cursor Gradient Code Ends -->
+
+</body>
+</html>
+
+    
+<!-- hero section start -->
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1><span>Hello, I'm</span> Ajit Bisen</h1>
+      <p>I craft clean, performant, and modern web experiences.</p>
+      <p class="typing-text">
+        <span id="typed-text"></span>
+        <span class="cursor">|</span>
+      </p>
+  
+      <div class="hero-buttons">
+        <a href="#" class="btn primary">🚀 Hire Me</a>
+        <a href="https://drive.google.com/file/d/1B_XLuyV_lMHwbbEb_zCk_xUP7tUam0Hn/view?usp=sharing" class="btn outline">📄 View Resume</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="ChatGPT Image Mar 31, 2025, 06_18_43 PM.png" alt="Developer Illustration" />
+    </div>
+
+   
+    <script>
+      const phrases = [
+        "I craft clean web experiences.",
+        "I build performant websites.",
+        "I love modern UI design.",
+        "I develop responsive UIs.",
+        "I optimize frontend speed."
+      ];
+    
+      const colors = ["#f87171", "#34d399", "#60a5fa", "#fbbf24", "#c084fc"];
+      const typedText = document.getElementById("typed-text");
+      const cursor = document.querySelector(".cursor");
+    
+      let phraseIndex = 0;
+      let letterIndex = 0;
+      let isDeleting = false;
+    
+      function type() {
+        const currentPhrase = phrases[phraseIndex];
+        const currentColor = colors[phraseIndex % colors.length];
+        typedText.style.color = currentColor;
+    
+        if (isDeleting) {
+          typedText.textContent = currentPhrase.substring(0, letterIndex--);
+        } else {
+          typedText.textContent = currentPhrase.substring(0, letterIndex++);
+        }
+    
+        if (!isDeleting && letterIndex === currentPhrase.length) {
+          isDeleting = true;
+          setTimeout(type, 1000); // pause before deleting
+        } else if (isDeleting && letterIndex === 0) {
+          isDeleting = false;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+          setTimeout(type, 300);
+        } else {
+          setTimeout(type, isDeleting ? 50 : 100);
+        }
+      }
+    
+      type(); // Start animation
+    </script>
+    
+
+  </section>
+  
+
+<!-- about section -->
+
+  <section class="about-modern" id="about">
+    <div class="about-grid">
+      
+      <!-- Left Side Text -->
+      <div class="about-text">
+        
+        <h4>About Me</h4>
+        <h2>Crafting Code, Creating Experiences</h2>
+        <p>
+          I'm a passionate web developer with <strong>2+ years</strong> of hands-on experience building fast, accessible, and creative websites using modern tech like React, WordPress & Node.
+        </p>
+        <a href="#contact" class="about-btn">Let's Collaborate 🚀</a>
+      </div>
+  
+      <!-- Right Side: Animated Code -->
+      <div class="about-code">
+        <pre><code id="typed-code"></code></pre>
+      </div>
+      
+      
+    </div>
+  </section>
+  
+  
+  
+  <script>
+    const codeBlock = document.getElementById("typed-code");
+  
+    const codeLines = [
+      `<span class="code-tag">&lt;experience&gt;</span>`,
+      `<span class="code-attr">  role</span>: <span class="code-string">"Web Developer"</span>,`,
+      `<span class="code-attr">  years</span>: <span class="code-string">"2+"</span>,`,
+      `<span class="code-attr">  skills</span>: <span class="code-string">["HTML", "CSS", "JS", "React", "WordPress"]</span>,`,
+      `<span class="code-attr">  location</span>: <span class="code-string">"India"</span>,`,
+      `<span class="code-attr">  passion</span>: <span class="code-string">"Building UI that feels magical ✨"</span>`,
+      `<span class="code-tag">&lt;/experience&gt;</span>`
+    ];
+  
+    let i = 0;
+  
+    function typeLine() {
+      if (i < codeLines.length) {
+        codeBlock.innerHTML += codeLines[i] + "<br>";
+        i++;
+        setTimeout(typeLine, 80);
+      }
+    }
+  
+    window.addEventListener("load", typeLine);
+  </script>
+  
+  
+
+
+  <section class="codehelp-style-experience">
+    <div class="experience-container">
+      <h2 class="section-title">Experience</h2>
+  
+      <div class="experience-cards">
+  
+        <!-- Experience Card -->
+        <div class="exp-card">
+          <div class="badge">Current</div>
+          <h3>Web Developer <span>@ Advertising 360</span></h3>
+          <p class="duration">Jan 2024 – Present • Hybrid</p>
+          <ul>
+            <li>Leading frontend and backend integration in production-level websites.</li>
+            <li>Collaborating with creative + SEO teams for UX enhancement.</li>
+            <li>Managing hosting, optimization and deployment.</li>
+          </ul>
+        </div>
+  
+        <!-- Card 2 -->
+        <div class="exp-card">
+          <h3>React.js Developer <span>@ Celebal Technologies</span></h3>
+          <p class="duration">May 2023 – Sep 2023 • Jaipur</p>
+          <ul>
+            <li>Built dynamic UI using React.js and explored Node.js backend.</li>
+            <li>Worked on real-world projects and security implementations.</li>
+          </ul>
+        </div>
+  
+        <!-- Card 3 -->
+        <div class="exp-card">
+          <h3>WordPress Intern <span>@ Lion Group, Bhopal</span></h3>
+          <p class="duration">Oct 2023 – Dec 2023 • Hybrid</p>
+          <ul>
+            <li>Built responsive WordPress sites with pixel-perfect UIs.</li>
+            <li>Fixed bugs, improved layout and collaborated on performance.</li>
+          </ul>
+        </div>
+  
+        <!-- Card 4 -->
+        <div class="exp-card">
+          <h3>Freelance Developer</h3>
+          <p class="duration">3+ Years • Remote</p>
+          <ul>
+            <li>Developed 30+ WordPress websites.</li>
+            <li>End-to-end frontend, backend, hosting & migration experience.</li>
+          </ul>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  
+  
+
+
+
+
+
+  <section class="projects-achievements" id="projects">
+    <div class="projects-container">
+  
+      <!-- Left Side: Cards -->
+      <div class="project-cards-box">
+
+        <a href="https://www.micro1.ai/" target="_blank" class="project-card">
+          <img src="micro1.ai" />
+          <h4>Micro1.AI</h4>
+          <p>Hiring portal</p>
+        </a>
+
+        <a href="https://advertising360.in" target="_blank" class="project-card">
+          <img src="https://www.google.com/s2/favicons?sz=64&domain=advertising360.in" />
+          <h4>Advertising360</h4>
+          <p>Ad & Branding</p>
+        </a>
+  
+        <a href="https://sobhagya.co.in" target="_blank" class="project-card">
+          <img src="https://www.google.com/s2/favicons?sz=64&domain=sobhagya.co.in" />
+          <h4>Sobhagya</h4>
+          <p>Event Management</p>
+        </a>
+  
+       
+        <a href="https://smartchatapi.in" target="_blank" class="project-card">
+          <img src="https://www.google.com/s2/favicons?sz=64&domain=smartchatapi.in" />
+          <h4>SmartChat API</h4>
+          <p>Whatsapp API</p>
+        </a>
+        
+        <a href="https://thecrayonsnetwork.com" target="_blank" class="project-card">
+          <img src="https://www.google.com/s2/favicons?sz=64&domain=thecrayonsnetwork.com" />
+          <h4>Crayons Network</h4>
+          <p>Event Agency</p>
+        </a>
+  
+        
+  
+        <a href="https://codehelp.in" target="_blank" class="project-card">
+          <img src="https://www.google.com/s2/favicons?sz=64&domain=codehelp.in" />
+          <h4>CodeHelp </h4>
+          <p>Learning Platform</p>
+        </a>
+  
+      </div>
+  
+  
+      <!-- Right Side: Text -->
+      <div class="project-text">
+        <h5>Projects</h5>
+        <h2>Websites I've Crafted for Real Clients</h2>
+        <p>
+          I’ve worked with real brands and clients to deliver fully responsive,
+          clean and modern websites — with speed, SEO and scalable tech.
+        </p>
+      </div>
+  
+    </div>
+  </section>
+  
+
+  
+  <section class="skills-section" id="skills">
+    <div class="skills-wrapper">
+      <!-- Left Content -->
+      <div class="skills-left">
+        <h2>Explore My Technical & Creative Stack</h2>
+        <p>
+          From front-end magic to AI tools, here’s everything I use to design, develop,
+          and deliver powerful digital experiences.
+        </p>
+        <div class="skills-actions">
+          <a href="#projects" class="btn primary">View Projects</a>
+          <a href="#contact" class="btn secondary">Connect Now</a>
+        </div>
+        <div class="skills-stats">
+          <img src="https://i.pravatar.cc/36?img=12" />
+          <img src="https://i.pravatar.cc/36?img=22" />
+          <img src="https://i.pravatar.cc/36?img=32" />
+          <img src="https://i.pravatar.cc/36?img=42" />
+          <span>50+ Projects Delivered</span>
+        </div>
+      </div>
+  
+      <!-- Right Skills Grid -->
+      <div class="skills-grid">
+        <div class="skill-card">WordPress, React.js, Frontend, Backend</div>
+        <div class="skill-card">C, C++, Python, HTML, CSS, JS</div>
+        <div class="skill-card">SQL, Node.js</div>
+        <div class="skill-card">OS & Software Installation</div>
+        <div class="skill-card">Troubleshooting, Networking</div>
+        <div class="skill-card">Remote Support, Data Management</div>
+        <div class="skill-card">MS Office: Word, Excel, PowerPoint</div>
+        <div class="skill-card">Graphic Design (Canva, Photoshop)</div>
+        <div class="skill-card">Email Setup & Documentation</div>
+        <div class="skill-card">ChatGPT, Grok, DeepSeek, ClaudeAI</div>
+        <div class="skill-card">Canva AI, Grammarly, MS Copilot</div>
+      </div>
+    </div>
+  </section>
+  
+
+
+
+  <section class="edu-terminal" id="education">
+    <div class="edu-terminal-box">
+      <div class="terminal-header">
+        <span class="circle red"></span>
+        <span class="circle yellow"></span>
+        <span class="circle green"></span>
+        <span class="edu-title">ajit@portfolio:~$</span>
+      </div>
+  
+      <div class="terminal-body">
+        <p><span class="prompt">ajit@portfolio:~$</span> cat education.txt</p>
+  
+        <div class="edu-entry">
+          <p><span class="edu-arrow">➤</span> <strong>B.Tech in CSE</strong></p>
+          <p>SISTec, Bhopal MP | CGPA: 8.0</p>
+          <p><i>RGPV University, 2020–2024</i></p>
+        </div>
+  
+        <div class="edu-entry">
+          <p><span class="edu-arrow">➤</span> <strong>Higher Secondary (Class XII)</strong></p>
+          <p>MPBoard | 81%</p>
+          <p><i>Year: 2020</i></p>
+        </div>
+  
+        <div class="edu-entry">
+          <p><span class="edu-arrow">➤</span> <strong>High School (Class X)</strong></p>
+          <p>MPBoard | 85%</p>
+          <p><i>Year: 2018</i></p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+
+
+  <section class="achievements-section" id="achievements">
+    <div class="achievements-container">
+      <h2>🏆 Achievements & Awards</h2>
+      <div class="achievements-list">
+  
+        <div class="achievement-card">
+          <span class="trophy">🏅</span>
+          <p><strong>CodeHunt Winner</strong> – 1st Prize at Amity University</p>
+        </div>
+  
+        <div class="achievement-card">
+          <span class="trophy">🥈</span>
+          <p>2nd Prize – Break-the-Code @ LNCT Bhopal</p>
+        </div>
+  
+        <div class="achievement-card">
+          <span class="trophy">⭐</span>
+          <p>5★ in C, C++, Python on HackerRank</p>
+        </div>
+  
+        <div class="achievement-card">
+          <span class="trophy">🏆</span>
+          <p>₹25,000 – MP Govt. Protsahan Yojna Scholarship</p>
+        </div>
+  
+        <div class="achievement-card">
+          <span class="trophy">🥇</span>
+          <p>1st Rank – Class 10th & 12th School Topper</p>
+        </div>
+  
+        <div class="achievement-card">
+          <span class="trophy">🎓</span>
+          <p>School President – Class 12th</p>
+        </div>
+  
+        <div class="achievement-card">
+          <span class="trophy">🏅</span>
+          <p>Most Disciplined Student – 2018</p>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  
+
+
+
+  <section class="social-section" id="social" style="position: relative; overflow: hidden; padding: 4rem 2rem; background-color: #09090b; text-align: center; color: white;">
+
+    <!-- 🔵 Bubbles Animation -->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;">
+      <div style="position: absolute; width: 20px; height: 20px; background: #6366f1; border-radius: 50%; opacity: 0.3; top: 10%; left: 20%; animation: float 10s infinite ease-in-out;"></div>
+      <div style="position: absolute; width: 30px; height: 30px; background: #f472b6; border-radius: 50%; opacity: 0.2; top: 40%; left: 70%; animation: float 12s infinite ease-in-out;"></div>
+      <div style="position: absolute; width: 15px; height: 15px; background: #22d3ee; border-radius: 50%; opacity: 0.25; top: 70%; left: 40%; animation: float 14s infinite ease-in-out;"></div>
+    </div>
+  
+    <section class="social-section" id="social" style="position: relative; overflow: hidden; padding: 4rem 2rem; background-color: #09090b; text-align: center; color: white;">
+
+      <!-- 🔵 Background Bubbles -->
+      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;">
+        <div style="position: absolute; width: 20px; height: 20px; background: #6366f1; border-radius: 50%; opacity: 0.3; top: 10%; left: 20%; animation: float 10s infinite ease-in-out;"></div>
+        <div style="position: absolute; width: 30px; height: 30px; background: #f472b6; border-radius: 50%; opacity: 0.2; top: 40%; left: 70%; animation: float 12s infinite ease-in-out;"></div>
+        <div style="position: absolute; width: 15px; height: 15px; background: #22d3ee; border-radius: 50%; opacity: 0.25; top: 70%; left: 40%; animation: float 14s infinite ease-in-out;"></div>
+      </div>
+    
+      <!-- 👋 Content Area -->
+      <div class="social-container" style="position: relative; z-index: 1;">
+        <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">🔗 Connect with Me</h2>
+        <p style="color: #d4d4d8; margin-bottom: 2rem;">Let’s build something amazing together!</p>
+        
+        <!-- 🔗 Social Links -->
+        <div class="social-links" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem;">
+          
+          <!-- GitHub -->
+          <a href="https://github.com/ajitbisen123" target="_blank" style="
+            display: flex; align-items: center; gap: 10px; padding: 1rem 1.5rem;
+            background: #1f1f23; border-radius: 12px; color: white; text-decoration: none;
+            min-width: 160px; animation: updown 3s ease-in-out infinite; box-shadow: 0 0 10px #0004;">
+            <img src='https://www.google.com/s2/favicons?sz=64&domain=github.com' style='width: 24px; height: 24px;' />
+            <span>GitHub</span>
+          </a>
+    
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/in/ajit-bisen-27a55a24b/" target="_blank" style="
+            display: flex; align-items: center; gap: 10px; padding: 1rem 1.5rem;
+            background: #1f1f23; border-radius: 12px; color: white; text-decoration: none;
+            min-width: 160px; animation: updown 4s ease-in-out infinite; box-shadow: 0 0 10px #0004;">
+            <img src='https://www.google.com/s2/favicons?sz=64&domain=linkedin.com' style='width: 24px; height: 24px;' />
+            <span>LinkedIn</span>
+          </a>
+    
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/techwithajit10/" target="_blank" style="
+            display: flex; align-items: center; gap: 10px; padding: 1rem 1.5rem;
+            background: #1f1f23; border-radius: 12px; color: white; text-decoration: none;
+            min-width: 160px; animation: updown 3.5s ease-in-out infinite; box-shadow: 0 0 10px #0004;">
+            <img src='https://www.google.com/s2/favicons?sz=64&domain=instagram.com' style='width: 24px; height: 24px;' />
+            <span>Instagram</span>
+          </a>
+    
+          <!-- Email -->
+          <a href="mailto:ajitbisen140@gmail.com" style="
+            display: flex; align-items: center; gap: 10px; padding: 1rem 1.5rem;
+            background: #1f1f23; border-radius: 12px; color: white; text-decoration: none;
+            min-width: 160px; animation: updown 4.2s ease-in-out infinite; box-shadow: 0 0 10px #0004;">
+            <img src='https://www.google.com/s2/favicons?sz=64&domain=mail.google.com' style='width: 24px; height: 24px;' />
+            <span>Email</span>
+          </a>
+    
+        </div>
+      </div>
+    
+      <!-- 🎈 Animations -->
+      <style>
+        @keyframes float {
+          0%   { transform: translateY(0); opacity: 0.3; }
+          50%  { transform: translateY(-30px); opacity: 0.5; }
+          100% { transform: translateY(0); opacity: 0.3; }
+        }
+    
+        @keyframes updown {
+          0%   { transform: translateY(0); }
+          50%  { transform: translateY(-8px); }
+          100% { transform: translateY(0); }
+        }
+      </style>
+    
+    </section>
+    
+<!-- 🌌 Epic Responsive Footer Starts -->
+<footer style="
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  padding: 4rem 2rem;
+  color: white;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+">
+
+  <!-- ✨ Shooting Star Background -->
+  <div style="
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  ">
+    <!-- Stars -->
+    <div style="position: absolute; top: 20%; left: 10%; width: 2px; height: 2px; background: white; border-radius: 50%; animation: twinkle 2s infinite alternate;"></div>
+    <div style="position: absolute; top: 40%; left: 70%; width: 2px; height: 2px; background: white; border-radius: 50%; animation: twinkle 3s infinite alternate;"></div>
+    <div style="position: absolute; top: 60%; left: 30%; width: 2px; height: 2px; background: white; border-radius: 50%; animation: twinkle 2.5s infinite alternate;"></div>
+
+    <!-- Shooting Star -->
+    <div style="position: absolute; top: 10%; left: -10%; width: 120px; height: 2px; background: linear-gradient(90deg, white, transparent); animation: shoot 5s linear infinite;"></div>
+  </div>
+
+  <!-- 🪞 Footer Content -->
+  <div style="
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    max-width: 100%;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 0 60px rgba(99, 102, 241, 0.3);
+  ">
+    <h2 style="
+      font-size: 6vw;
+      max-font-size: 2rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, #818cf8, #f472b6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    ">
+      Made with 💜 in Another Universe
+    </h2>
+
+    <p style="font-size: 4vw; max-font-size: 1rem; color: #d4d4d8;">
+      You're not just visiting a site — you’re witnessing imagination at play. <br/>
+      Let’s connect and build something <strong>unreal</strong> together.
+    </p>
+
+    <p style="margin-top: 2rem; font-size: 3.5vw; max-font-size: 0.9rem; color: #71717a;">
+      © 2025 Ajit Bisen. All rights reserved in the multiverse.
+    </p>
+  </div>
+
+  <!-- 🎈 Animations -->
+  <style>
+    @keyframes twinkle {
+      0% { opacity: 0.3; transform: scale(1); }
+      100% { opacity: 1; transform: scale(1.5); }
+    }
+
+    @keyframes shoot {
+      0% { left: -20%; top: 10%; opacity: 0; }
+      10% { opacity: 1; }
+      100% { left: 120%; top: 80%; opacity: 0; }
+    }
+
+    @media (min-width: 768px) {
+      footer h2 {
+        font-size: 2rem !important;
+      }
+
+      footer p {
+        font-size: 1rem !important;
+      }
+    }
+  </style>
+</footer>
+
+
+
+</body>
+</html>
